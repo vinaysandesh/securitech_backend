@@ -4,6 +4,7 @@ const express = require('express');
 const authMiddleware = require('../middlewares/authMiddleware'); 
 const {snortScan } = require('./../controllers/snortScan');
 const runNmapScans = require('../controllers/nmapScan');
+const getAllLogs = require('../controllers/scanLogs');
 const router = express.Router();
 
 // Protect user profile route with authMiddleware
@@ -40,7 +41,7 @@ const router = express.Router();
  *                   example: "Error message if something goes wrong."
  */ 
 
-router.post('/nmap-scan', runNmapScans);
+router.post('/nmap-scan', authMiddleware,runNmapScans);
 /**
  * @swagger
  * /snort-scan:
@@ -72,5 +73,7 @@ router.post('/nmap-scan', runNmapScans);
  *                   type: string
  *                   example: "Error message if something goes wrong."
  */ 
-router.post('/snort',snortScan);
+router.post('/snort',authMiddleware,snortScan);
+router.post('/get-all-logs',authMiddleware,getAllLogs)
+router.post('/get-grouped_tools',authMiddleware,)
 module.exports = router;

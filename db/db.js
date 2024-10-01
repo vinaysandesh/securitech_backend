@@ -2,7 +2,7 @@
 
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
-const { CREATE_TABLE_USERS } = require('./CreateQueries');
+const { CREATE_TABLE_USERS, CREATE_TABLE_LOGS } = require('./CreateQueries');
 
 // Path to the SQLite3 database file
 const dbPath = path.join(__dirname, 'data.db');
@@ -23,5 +23,11 @@ db.run(CREATE_TABLE_USERS,(err)=>{
     console.log("created")
   }
 })
-
+db.run(CREATE_TABLE_LOGS,(err)=>{
+  if(err){
+    // console.log(err)
+  }else{
+    console.log("created")
+  }
+})
 module.exports ={db}

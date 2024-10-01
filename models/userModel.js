@@ -2,7 +2,7 @@
 
 const { db } = require("../db/db");
 const { insertUser } = require("../db/InsertQuery");
-const { getUserDetails } = require("../db/SelectQueries");
+const { getUserDetails, getLogs, get_group_by_tools } = require("../db/SelectQueries");
 
 const users = [];
 
@@ -21,6 +21,12 @@ module.exports = {
   },
   findUserById: (id, callback)=>{
     db.all(getUserDetails,[id], callback)
+  },
+  selectAllLogs: (callback)=>{
+    db.all(getLogs,[],callback)
+  },
+  getGroupedLogs: (callback)=>{
+    db.all(get_group_by_tools,[],callback)
   }
 };
 

@@ -22,6 +22,7 @@
 // Import the child_process module
 const { exec } = require('child_process');
 const path = require('path');
+const parseXML = require('../utils/xmlParser');
 
 const parseVulnersOutput=(nmapOutput )=> {
     const lines = nmapOutput.split('\n');
@@ -67,10 +68,34 @@ const parseVulnersOutput=(nmapOutput )=> {
     return vulnersData;
 }
 // Function to run Nmap scan
+const runPythonNmap = ()=>{
+const { spawn } = require('child_process');
+
+// Define the Python script and arguments
+const pythonScript = 'parseNmapOutput.py';
+const args = ['1', '2', '3'];  // Arguments to pass to the script
+
+// Spawn a child process to run the Python script
+const pythonProcess = spawn('python', [pythonScript, ...args]);
+
+// Handle output from the Python script
+pythonProcess.stdout.on('data', (data) => {
+    console.log(`Output: ${data.toString()}`);
+});
+
+// Handle error output from the Python script
+pythonProcess.stderr.on('data', (data) => {
+    console.error(`Error: ${data.toString()}`);
+});
+
+// Handle process exit
+pythonProcess.on('exit', (code) => {
+    console.log(`Python script exited with code: ${code}`);
+});
+}
 const runNmapScans = (req,res) => {
-    const currentDir = process.cwd();
-    console.log("--------",currentDir )
-    const nmapCommand =  `nmap -sV --script vulners --script-args mincvss=5 -oX C:/Users/vinay/Desktop/capstone/backend/output.xml scanme.nmap.com`;
+    const currentDir = process.cwd(); 
+    const nmapCommand =  `nmap -sV --script vulners --script-args mincvss=5 -oN C:/Users/vinay/Desktop/capstone/backend/output.txt scanme.nmap.com`;
     // const command = `nmap ${options} ${target}`;
 
     // Execute the command
@@ -79,13 +104,12 @@ const runNmapScans = (req,res) => {
            res.status(500).json({ success: false, message: error });
 
         }
-        if (stderr) {
-             console.log('=========',stderr)
+        if (stderr) { 
             return;
-        }
-        console.log('==',stdout) 
-         res.json({ success: true, data: stdout });
-    });
+        } 
+        runPythonNmap()
+         res.json({ success: true, data: "stdout" });
+    }); 
 };
  
 // Export the function so it can be used in other modules
