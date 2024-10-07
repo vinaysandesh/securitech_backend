@@ -3,25 +3,29 @@ import re
 from datetime import datetime
 import sqlite3
 import random
+import sys
+
 # Function to determine priority based on CVSS score
 insert_logs_query = '''
     INSERT INTO logs ( 
-        id_type,
-        issue_name,
-        issue_type,
-        issue_priority,
-        issue_description,
-        issue_brief_description,
-        issue_resolution,
-        issue_url,
-        assigned_to,
-        status,
-        host,
-        ip,
-        scan_date,
-        tool
-    )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+    id_type,
+    issue_name,
+    issue_type,
+    issue_priority,
+    issue_description,
+    issue_brief_description,
+    issue_resolution,
+    issue_url,
+    assigned_to,
+    status,
+    host,
+    ip,
+    scan_date,
+    tool
+)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+ON CONFLICT(issue_name, host) DO UPDATE SET 
+    occurrences = occurrences + 1;
 '''
 def determine_priority(cvss_score):
     if cvss_score > 8.5:
@@ -91,6 +95,8 @@ def parse_nmap_txt(file_path):
                     "tool":"nmap"
                     
                 }
+                
+                print("ARGS=",sys.argv)
                 data_dump = (
                     random.randint(1000, 100000),
                     issue_name,
@@ -102,10 +108,11 @@ def parse_nmap_txt(file_path):
                     url,
                     assigned_to,
                     "Open",
-                    "scanme.nmap.org",
+                    sys.argv[1],
                     "45.33.32.156",  # Example IP
                     datetime.now().strftime("%Y-%m-%d"),
-                    "nmap"
+                    "nmap",
+                     
                 )
                 print("incident_count")
                 cursor.execute(insert_logs_query, data_dump)

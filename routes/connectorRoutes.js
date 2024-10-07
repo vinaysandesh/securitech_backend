@@ -4,7 +4,7 @@ const express = require('express');
 const authMiddleware = require('../middlewares/authMiddleware'); 
 const {snortScan } = require('./../controllers/snortScan');
 const runNmapScans = require('../controllers/nmapScan');
-const getAllLogs = require('../controllers/scanLogs');
+const {getAllLogs, get_grouped_logs} = require('../controllers/scanLogs');
 const router = express.Router();
 
 // Protect user profile route with authMiddleware
@@ -75,5 +75,5 @@ router.post('/nmap-scan', authMiddleware,runNmapScans);
  */ 
 router.post('/snort',authMiddleware,snortScan);
 router.post('/get-all-logs',authMiddleware,getAllLogs)
-router.post('/get-grouped_tools',authMiddleware,)
+router.post('/get-grouped_tools',authMiddleware,get_grouped_logs) 
 module.exports = router;

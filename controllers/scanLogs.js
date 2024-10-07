@@ -1,7 +1,7 @@
 const { selectAllLogs, getGroupedLogs } = require("../models/userModel");
 
 const getAllLogs = (req,res)=>{
-    const logs = selectAllLogs((err,row)=>{
+    const logs = selectAllLogs(req.body.offset,(err,row)=>{
         if(err){
             console.log('error',err)
             res.status(400).send("Error occured")
@@ -19,5 +19,5 @@ const get_grouped_logs = (req,res)=>{
         console.log('row',row)
         res.status(200).send(row)
     })
-}
-module.exports = getAllLogs;
+} 
+module.exports = {getAllLogs,get_grouped_logs};

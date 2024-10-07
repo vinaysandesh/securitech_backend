@@ -1,8 +1,7 @@
-# Nmap 7.95 scan initiated Tue Oct  1 09:36:54 2024 as: nmap -sV --script vulners --script-args mincvss=5 -oN C:/Users/vinay/Desktop/capstone/backend/output.txt scanme.nmap.com
-Nmap scan report for scanme.nmap.com (45.33.32.156)
-Host is up (0.17s latency).
-Other addresses for scanme.nmap.com (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
-rDNS record for 45.33.32.156: scanme.nmap.org
+# Nmap 7.95 scan initiated Tue Oct  8 01:34:38 2024 as: nmap -sV --script vulners --script-args mincvss=5 -oN C:/Users/vinay/Desktop/capstone/backend/output.txt scanme.nmap.org
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.16s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
 Not shown: 992 closed tcp ports (reset)
 PORT      STATE    SERVICE        VERSION
 22/tcp    open     ssh            OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)
@@ -133,6 +132,7 @@ PORT      STATE    SERVICE        VERSION
 |     	ACD5A7F2-FDB2-5859-8D23-3266A1AF6795	9.8	https://vulners.com/githubexploit/ACD5A7F2-FDB2-5859-8D23-3266A1AF6795	*EXPLOIT*
 |     	A90ABEAD-13A8-5F09-8A19-6D9D2D804F05	9.8	https://vulners.com/githubexploit/A90ABEAD-13A8-5F09-8A19-6D9D2D804F05	*EXPLOIT*
 |     	A8616E5E-04F8-56D8-ACB4-32FDF7F66EED	9.8	https://vulners.com/githubexploit/A8616E5E-04F8-56D8-ACB4-32FDF7F66EED	*EXPLOIT*
+|     	A5425A79-9D81-513A-9CC5-549D6321897C	9.8	https://vulners.com/githubexploit/A5425A79-9D81-513A-9CC5-549D6321897C	*EXPLOIT*
 |     	A2D97DCC-04C2-5CB1-921F-709AA8D7FD9A	9.8	https://vulners.com/githubexploit/A2D97DCC-04C2-5CB1-921F-709AA8D7FD9A	*EXPLOIT*
 |     	9B4F4E4A-CFDF-5847-805F-C0BAE809DBD5	9.8	https://vulners.com/githubexploit/9B4F4E4A-CFDF-5847-805F-C0BAE809DBD5	*EXPLOIT*
 |     	907F28D0-5906-51C7-BAA3-FEBD5E878801	9.8	https://vulners.com/githubexploit/907F28D0-5906-51C7-BAA3-FEBD5E878801	*EXPLOIT*
@@ -182,7 +182,6 @@ PORT      STATE    SERVICE        VERSION
 |     	4373C92A-2755-5538-9C91-0469C995AA9B	9.0	https://vulners.com/githubexploit/4373C92A-2755-5538-9C91-0469C995AA9B	*EXPLOIT*
 |     	36618CA8-9316-59CA-B748-82F15F407C4F	9.0	https://vulners.com/githubexploit/36618CA8-9316-59CA-B748-82F15F407C4F	*EXPLOIT*
 |     	CVE-2021-44224	8.2	https://vulners.com/cve/CVE-2021-44224
-|     	B0A9E5E8-7CCC-5984-9922-A89F11D6BF38	8.2	https://vulners.com/githubexploit/B0A9E5E8-7CCC-5984-9922-A89F11D6BF38	*EXPLOIT*
 |     	CVE-2024-38473	8.1	https://vulners.com/cve/CVE-2024-38473
 |     	CVE-2017-15715	8.1	https://vulners.com/cve/CVE-2017-15715
 |     	CVE-2016-5387	8.1	https://vulners.com/cve/CVE-2016-5387
@@ -217,26 +216,25 @@ PORT      STATE    SERVICE        VERSION
 |     	CVE-2024-39573	7.5	https://vulners.com/cve/CVE-2024-39573
 |     	CVE-2024-38477	7.5	https://vulners.com/cve/CVE-2024-38477
 |     	CVE-2024-38472	7.5	https://vulners.com/cve/CVE-2024-38472
-|     	CVE-2024-27316	7.5	https://vulners.com/cve/CVE-2024-27316
-|     	CVE-2023-43622	7.5	https://vulners.com/cve/CVE-2023-43622
 |     	CVE-2023-31122	7.5	https://vulners.com/cve/CVE-2023-31122
-|     	CVE-2023-27522	7.5	https://vulners.com/cve/CVE-2023-27522
 |     	CVE-2022-30556	7.5	https://vulners.com/cve/CVE-2022-30556
 |     	CVE-2022-30522	7.5	https://vulners.com/cve/CVE-2022-30522
 |     	CVE-2022-29404	7.5	https://vulners.com/cve/CVE-2022-29404
 |     	CVE-2022-26377	7.5	https://vulners.com/cve/CVE-2022-26377
 |     	CVE-2022-22719	7.5	https://vulners.com/cve/CVE-2022-22719
-|     	CVE-2021-41773	7.5	https://vulners.com/cve/CVE-2021-41773
 |     	CVE-2021-41524	7.5	https://vulners.com/cve/CVE-2021-41524
 |     	CVE-2021-36160	7.5	https://vulners.com/cve/CVE-2021-36160
 |     	CVE-2021-34798	7.5	https://vulners.com/cve/CVE-2021-34798
+|     	CVE-2021-33193	7.5	https://vulners.com/cve/CVE-2021-33193
 |     	CVE-2021-31618	7.5	https://vulners.com/cve/CVE-2021-31618
 |     	CVE-2021-26690	7.5	https://vulners.com/cve/CVE-2021-26690
 |     	CVE-2020-13950	7.5	https://vulners.com/cve/CVE-2020-13950
 |     	CVE-2019-0217	7.5	https://vulners.com/cve/CVE-2019-0217
 |     	CVE-2019-0215	7.5	https://vulners.com/cve/CVE-2019-0215
 |     	CVE-2019-0190	7.5	https://vulners.com/cve/CVE-2019-0190
+|     	CVE-2018-8011	7.5	https://vulners.com/cve/CVE-2018-8011
 |     	CVE-2018-17199	7.5	https://vulners.com/cve/CVE-2018-17199
+|     	CVE-2018-1333	7.5	https://vulners.com/cve/CVE-2018-1333
 |     	CVE-2018-1303	7.5	https://vulners.com/cve/CVE-2018-1303
 |     	CVE-2017-9798	7.5	https://vulners.com/cve/CVE-2017-9798
 |     	CVE-2017-9789	7.5	https://vulners.com/cve/CVE-2017-9789
@@ -287,7 +285,6 @@ PORT      STATE    SERVICE        VERSION
 |     	5A54F5DA-F9C1-508B-AD2D-3E45CD647D31	7.5	https://vulners.com/githubexploit/5A54F5DA-F9C1-508B-AD2D-3E45CD647D31	*EXPLOIT*
 |     	4E5A5BA8-3BAF-57F0-B71A-F04B4D066E4F	7.5	https://vulners.com/githubexploit/4E5A5BA8-3BAF-57F0-B71A-F04B4D066E4F	*EXPLOIT*
 |     	4C79D8E5-D595-5460-AA84-18D4CB93E8FC	7.5	https://vulners.com/githubexploit/4C79D8E5-D595-5460-AA84-18D4CB93E8FC	*EXPLOIT*
-|     	45D138AD-BEC6-552A-91EA-8816914CA7F4	7.5	https://vulners.com/githubexploit/45D138AD-BEC6-552A-91EA-8816914CA7F4	*EXPLOIT*
 |     	41F0C2DA-2A2B-5ACC-A98D-CAD8D5AAD5ED	7.5	https://vulners.com/githubexploit/41F0C2DA-2A2B-5ACC-A98D-CAD8D5AAD5ED	*EXPLOIT*
 |     	4051D2EF-1C43-576D-ADB2-B519B31F93A0	7.5	https://vulners.com/githubexploit/4051D2EF-1C43-576D-ADB2-B519B31F93A0	*EXPLOIT*
 |     	3CF66144-235E-5F7A-B889-113C11ABF150	7.5	https://vulners.com/githubexploit/3CF66144-235E-5F7A-B889-113C11ABF150	*EXPLOIT*
@@ -327,7 +324,6 @@ PORT      STATE    SERVICE        VERSION
 |     	45F0EB7B-CE04-5103-9D40-7379AE4B6CDD	5.8	https://vulners.com/githubexploit/45F0EB7B-CE04-5103-9D40-7379AE4B6CDD	*EXPLOIT*
 |     	1337DAY-ID-33577	5.8	https://vulners.com/zdt/1337DAY-ID-33577	*EXPLOIT*
 |     	CVE-2020-13938	5.5	https://vulners.com/cve/CVE-2020-13938
-|     	CVE-2024-40725	5.3	https://vulners.com/cve/CVE-2024-40725
 |     	CVE-2022-37436	5.3	https://vulners.com/cve/CVE-2022-37436
 |     	CVE-2022-28614	5.3	https://vulners.com/cve/CVE-2022-28614
 |     	CVE-2022-28330	5.3	https://vulners.com/cve/CVE-2022-28330
@@ -367,4 +363,4 @@ PORT      STATE    SERVICE        VERSION
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Tue Oct  1 09:37:19 2024 -- 1 IP address (1 host up) scanned in 24.53 seconds
+# Nmap done at Tue Oct  8 01:35:01 2024 -- 1 IP address (1 host up) scanned in 23.25 seconds

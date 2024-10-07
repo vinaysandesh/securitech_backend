@@ -22,8 +22,8 @@ module.exports = {
   findUserById: (id, callback)=>{
     db.all(getUserDetails,[id], callback)
   },
-  selectAllLogs: (callback)=>{
-    db.all(getLogs,[],callback)
+  selectAllLogs: (offset,callback)=>{
+    db.all(getLogs,[offset],callback)
   },
   getGroupedLogs: (callback)=>{
     db.all(get_group_by_tools,[],callback)

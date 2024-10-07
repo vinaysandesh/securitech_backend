@@ -7,21 +7,23 @@ const CREATE_TABLE_USERS =`CREATE TABLE IF NOT EXISTS users (
 );
 `
 const CREATE_TABLE_LOGS = `CREATE TABLE logs (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,  -- Auto-increment ID for each log entry
-    id_type TEXT NOT NULL,                 -- Incident ID like 'INC-001'
-    issue_name TEXT NOT NULL,              -- Name of the issue
-    issue_type TEXT NOT NULL,              -- Type of issue (e.g., 'Vulnerability')
-    issue_priority TEXT NOT NULL,          -- Priority level of the issue
-    issue_description TEXT NOT NULL,       -- Detailed description of the issue
-    issue_brief_description TEXT NOT NULL, -- Brief description of the issue
-    issue_resolution TEXT NOT NULL,        -- Resolution steps for the issue
-    issue_url TEXT,                        -- URL link for more information
-    assigned_to TEXT,                      -- Person assigned to handle the issue
-    status TEXT NOT NULL,                  -- Status of the issue (e.g., 'Open')
-    host TEXT NOT NULL,                    -- Host name (e.g., 'scanme.nmap.org')
-    ip TEXT NOT NULL,                      -- IP address of the host
-    scan_date TEXT NOT NULL,               -- Date of the scan (in 'YYYY-MM-DD' format)
-    tool TEXT NOT NULL                     -- Tool used for the scan (e.g., 'nmap')
+    id INTEGER PRIMARY KEY AUTOINCREMENT,   
+    id_type TEXT NOT NULL,                 
+    issue_name TEXT NOT NULL,             
+    issue_type TEXT NOT NULL,              
+    issue_priority TEXT NOT NULL,          
+    issue_description TEXT NOT NULL,       
+    issue_brief_description TEXT NOT NULL,  
+    issue_resolution TEXT NOT NULL,         
+    issue_url TEXT,                        
+    assigned_to TEXT,                     
+    status TEXT NOT NULL,                  
+    host TEXT NOT NULL,                    
+    ip TEXT NOT NULL,                      
+    scan_date TEXT NOT NULL,               
+    tool TEXT NOT NULL,
+    occurrences INT DEFAULT 1,
+    UNIQUE(issue_name, host)  -- Unique constraint for issue_name and host
 );
 `
 module.exports ={
