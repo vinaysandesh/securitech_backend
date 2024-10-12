@@ -18,7 +18,7 @@ const getLogs = `
             tool
         FROM 
             logs 
-            ORDER BY scan_date DESC  -- Or you can use 'id' if you prefer
+            ORDER BY id DESC   
         LIMIT 10 OFFSET ?; 
     `;
 const get_group_by_tools = `SELECT tool, COUNT(*) AS count

@@ -1,7 +1,7 @@
 // models/userModel.js
 
 const { db } = require("../db/db");
-const { insertUser } = require("../db/InsertQuery");
+const { insertUser, addManualAlerts } = require("../db/InsertQuery");
 const { getUserDetails, getLogs, get_group_by_tools } = require("../db/SelectQueries");
 
 const users = [];
@@ -21,12 +21,18 @@ module.exports = {
   },
   findUserById: (id, callback)=>{
     db.all(getUserDetails,[id], callback)
+
   },
   selectAllLogs: (offset,callback)=>{
     db.all(getLogs,[offset],callback)
   },
   getGroupedLogs: (callback)=>{
     db.all(get_group_by_tools,[],callback)
+  },
+  addManualAlert: (data,callback)=>{
+    console.log(data)
+    db.all(addManualAlerts,[data.id_type,data.issue_name, data.issue_type, data.issue_priority, data.issue_description, data.issue_brief_description,data.issue_resolution, data.issue_url, data.assigned_to, data.status, data.host, data.ip,data.scan_date,data.tool],callback)
+    
   }
 };
 

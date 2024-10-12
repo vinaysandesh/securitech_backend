@@ -4,8 +4,7 @@ const { findUserById } = require("../models/userModel");
 const jwt = require('jsonwebtoken');
 // controllers/userController.js 
 exports.getUserProfile = (req, res) => {
-    // Example: Fetch user profile logic here
-  console.log("---------")
+    // Example: Fetch user profile logic here 
     const token = req.header('Authorization'); // Assuming Bearer token
   
   // Verify and decode the token to extract userId

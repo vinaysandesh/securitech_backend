@@ -41,8 +41,8 @@ const runNmapScans =async (req,res) => {
     
     // Execute the command
     await schema.validate(req.body);
-    const nmapCommand =  `nmap -sV --script vulners --script-args mincvss=5 -oN C:/Users/vinay/Desktop/capstone/backend/output.txt ${req.body.target}`;
-    exec(nmapCommand,{cwd:"C:/Users/vinay/Desktop/capstone/backend"}, (error, stdout, stderr) => {
+    const nmapCommand =  `nmap -sV --script vulners --script-args mincvss=5 -oN output.txt ${req.body.target}`;
+    exec(nmapCommand,{cwd:process.cwd()}, (error, stdout, stderr) => {
         if (error) {
            res.status(500).json({ success: false, message: error });
 
