@@ -23,8 +23,8 @@ module.exports = {
     db.all(getUserDetails,[id], callback)
 
   },
-  selectAllLogs: (offset,callback)=>{
-    db.all(getLogs,[offset],callback)
+  selectAllLogs: (data,callback)=>{
+    db.all(getLogs,[data.assigned_to,data.assigned_to, data.offset],callback)
   },
   getGroupedLogs: (callback)=>{
     db.all(get_group_by_tools,[],callback)
@@ -33,6 +33,9 @@ module.exports = {
     console.log(data)
     db.all(addManualAlerts,[data.id_type,data.issue_name, data.issue_type, data.issue_priority, data.issue_description, data.issue_brief_description,data.issue_resolution, data.issue_url, data.assigned_to, data.status, data.host, data.ip,data.scan_date,data.tool],callback)
     
+  },
+  fetchAllUsers:(data,callback)=>{
+     db.all("SELECT id, username, email FROM users",callback)
   }
 };
 

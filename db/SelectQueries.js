@@ -17,8 +17,11 @@ const getLogs = `
             scan_date,
             tool
         FROM 
-            logs 
-            ORDER BY id DESC   
+            logs
+        WHERE 
+            assigned_to = ? OR ? is NULL
+        ORDER BY 
+            id DESC
         LIMIT 10 OFFSET ?; 
     `;
 const get_group_by_tools = `SELECT tool, COUNT(*) AS count
